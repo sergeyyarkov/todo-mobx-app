@@ -1,38 +1,21 @@
-import * as React from "react"
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+import * as React from 'react';
+import { ChakraProvider, Box, theme } from '@chakra-ui/react';
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
-    </Box>
-  </ChakraProvider>
-)
+/**
+ * Components
+ */
+import TodoInput from './components/TodoInput';
+import TodoHeader from './components/TodoHeader';
+import TodoList from './components/TodoList';
+
+export const App = () => {
+  return (
+    <ChakraProvider theme={theme}>
+      <Box maxW='800px' mt='5' mr='auto' ml='auto'>
+        <TodoHeader />
+        <TodoInput />
+        <TodoList />
+      </Box>
+    </ChakraProvider>
+  );
+};
