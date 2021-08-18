@@ -11,7 +11,7 @@ import TodoList from './components/TodoList';
 export const App = () => {
   return (
     <ChakraProvider theme={theme}>
-      <Box maxW='800px' mt='5' mr='auto' ml='auto'>
+      <Box maxW='800px' mt='5' mr='auto' ml='auto' p='10'>
         <TodoHeader />
         <TodoInput />
         <TodoList />

@@ -3,7 +3,7 @@ import React from 'react';
 import { useStores } from '../hooks/useStores';
 
 const TodoInput: React.FC = () => {
-  const [formState, setformState] = React.useState<{ title: string }>({
+  const [formState, setFormState] = React.useState<{ title: string }>({
     title: '',
   });
   const { todoStore } = useStores();
@@ -13,12 +13,15 @@ const TodoInput: React.FC = () => {
       <form
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
+
           todoStore.createTodo({
             id: todoStore.todos.length + 1,
             title: formState.title,
             createdAt: new Date(),
             updatedAt: new Date(),
           });
+
+          setFormState({ title: '' });
         }}>
         <FormControl>
           <Flex>
@@ -27,7 +30,7 @@ const TodoInput: React.FC = () => {
               size='md'
               mr='2'
               value={formState.title}
-              onChange={(e) => setformState({ title: e.target.value })}
+              onChange={(e) => setFormState({ title: e.target.value })}
               isRequired
             />
             <Button type='submit' size='md'>
